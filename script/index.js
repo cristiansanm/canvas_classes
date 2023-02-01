@@ -1,21 +1,25 @@
-import { Square } from "./Square.js"
+import { Image } from "./Classes/Image.js"
+import { Square } from "./Classes/Square.js"
+import { AxisByKey } from "./constants/keys.js"
 
 const canvas = document.getElementById("canvas")
 
 const ctx = canvas.getContext("2d")
 
-ctx.fillStyle = "black"
-ctx.strokeRect(0, 0, canvas.width, canvas.height)
+function drawCanvas({ width = 500, height = 500, strokeColor = "black"}) {
+  canvas.width = width
+  canvas.height = height
+  ctx.fillStyle = strokeColor
+  ctx.strokeRect(0, 0, canvas.width, canvas.height)
+}
 
+drawCanvas({})
+const image1 = new Image({ctx, canvasWidth: canvas.width, canvasHeight: canvas.height, startPointX: 10, startPointY: 5, drawCanvas})
 
-const square1 = new Square(ctx, canvas.width, canvas.height, 10, 5)
-
-square1.drawImg()
+image1.drawImg()
 
 document.addEventListener("keydown", (event) => { 
-  canvas.width = 500
-  canvas.height = 500
-  ctx.fillStyle = "black"
-  ctx.strokeRect(0, 0, canvas.width, canvas.height)
-  square1.moveRight(event, 10) 
+  let key = event.key
+  image1.objMovement(event, 10, AxisByKey[key]) 
+  image1.drawImg()
 })
