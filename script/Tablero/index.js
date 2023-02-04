@@ -7,13 +7,13 @@ const ctx = canvas.getContext("2d");
 let x = 0;
 let y = 0;
 
-const ColorsEnum = {
+export const ColorsEnum = {
   AVATAR: "orange",
   TIERRA: "gray",
   PELIGRO: "red",
   AGUA: "blue",
   LLAVE: "green",
-  PUERTA: "white",
+  PUERTA: "brown",
 };
 const COLOR_BY_NUMBER = {
   0: ColorsEnum.AGUA,
@@ -23,6 +23,13 @@ const COLOR_BY_NUMBER = {
   5: ColorsEnum.LLAVE
 };
 
+export const NUMBER_BY_COLOR = {
+  [ColorsEnum.AGUA]: 0,
+  [ColorsEnum.TIERRA]: 1,
+  [ColorsEnum.PELIGRO]: 2,
+  [ColorsEnum.PUERTA]: 3,
+  [ColorsEnum.LLAVE]: 5
+}
 
 let matrizTablero = [
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

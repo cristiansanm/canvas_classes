@@ -25,6 +25,10 @@ export class Square extends BasisClass {
     this.color = color;
   }
 
+  setColor(color) {
+    this.color = color
+  }
+  
   drawSquare() {
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(

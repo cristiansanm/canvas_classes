@@ -1,7 +1,7 @@
 import { KeyEnum } from "../constants/keys.js";
 
 /* A map of functions that are used to determine the position of the object. */
-const ConditionalByMovement = new Map([
+export const ConditionalByMovement = new Map([
   [
     KeyEnum.ARROW_LEFT,
     ({ movement, startPointX }) => {
@@ -37,7 +37,6 @@ const ConditionalByMovement = new Map([
     return position;
   }]
 ]);
-
 
 export class BasisClass {
   constructor({
